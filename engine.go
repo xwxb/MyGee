@@ -26,6 +26,13 @@ func New() *Engine {
 	return engine
 }
 
+// Default use Logger() & Recovery middlewares
+func Default() *Engine {
+	engine := New()
+	engine.Use(Logger(), Recovery())
+	return engine
+}
+
 // Run defines the method to start a http server
 func (engine *Engine) Run(addr string) (err error) {
 	return http.ListenAndServe(addr, engine)
