@@ -47,6 +47,8 @@ func (engine *Engine) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	engine.router.handle(c)
 }
 
+// SetFuncMap 自定义模板渲染函数
+// 用例比如说你需要使用一个有占位符的 html 模板，加上一个简单表示时间的 `gin.H` 来进行一个渲染
 func (engine *Engine) SetFuncMap(funcMap template.FuncMap) {
 	engine.funcMap = funcMap
 }
